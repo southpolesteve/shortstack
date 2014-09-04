@@ -2,28 +2,64 @@
 <html>
     <head>
         <title>Is Short Stack Open?</title>
-        <style>
-          h1 {}
-        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <link href="/css/screen.css" rel="stylesheet" media="all" />
+        <script type="text/javascript" src="//use.typekit.net/fqk5gwe.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     </head>
     <body>
-        <h1 id="answer"></h1>
+        <header>
+            <h1>IsShortStackOpen?</h1>
+            <div class="bar">&nbsp;</div>
+            <div class="bar">&nbsp;</div>
+            <div class="bar">&nbsp;</div>
+        </header>
+        <div class="body">
+            <div class="body-content">
+                <div class="yes-no-box">
+                    <div id="yesBox" class="yes-box">YES</div>
+                    <div id="noBox" class="no-box">NO</div>
+                </div>
+
+                <a href="http://www.shortstackeats.com/" target="_blank" class="sse-link">
+                    <img src="images/sse-logo.png" alt="Short Stack Eats" /><br />
+                    Visit www.shortstackeats.com
+                </a>
+            </div>
+        </div>
+        <footer>
+            <a href="https://github.com/southpolesteve/shortstack" target="_blank">
+                <div>Created by Steve Faulkner. <span class="mobile-block">Contribute on GitHub.com</span></div>
+                <img src="images/github-logo.png" alt="Contribute on GitHub.com" />
+            </a>
+        </footer>
+
         <script type="text/javascript">
-          var now = new Date();
-          var weekday = now.getDay();
-          var hour = now.getHours();
-          var answer = document.getElementById('answer');
+            var now = new Date();
+            var weekday = now.getDay();
+            var hour = now.getHours();
 
-          if (weekday >= 4 || weekday == 0){
-            if (weekday > 4 ){ answer.innerHTML = "Yes" }
-            else if (weekday == 4 && hour >= 7 ){ answer.innerHTML = "Yes" }
-            else if (weekday == 0 && hour <= 23 ){ answer.innerHTML = "Yes" }
-            else { answer.innerHTML = "No" }
-          }
-          else {
-            answer.innerHTML = "No";
-          }
+            var isOpen = false;
+            if (weekday >= 4 || weekday == 0) {
+                if (weekday > 4 ) {
+                    isOpen = true;
+                }
+                else if (weekday == 4 && hour >= 7 ) {
+                    isOpen = true;
+                }
+                else if (weekday == 0 && hour <= 23 ) {
+                    isOpen = true;
+                }
+            }
 
+            var yes = document.getElementById('yesBox');
+            var no = document.getElementById('noBox');
+            if (isOpen) {
+                yes.className = yes.className + " on";
+            }
+            else {
+                no.className = no.className + " on";
+            }
         </script>
     </body>
 </html>
