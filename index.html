@@ -2,12 +2,30 @@
 <html>
     <head>
         <title>Is Short Stack Open?</title>
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.min.js"></script>
         <style>
           h1 {}
         </style>
     </head>
     <body>
+        <h1 id="answer"></h1>
+        <script type="text/javascript">
+          var weekday = moment().weekday();
+          var hour = moment().hour();
+          var answer = document.getElementById('answer');
 
-        <h1>No</h1>
+          if (weekday >= 4 && weekday <= 7){
+            if (weekday == 4 && hour >= 7 ){
+              answer.innerHTML = "Yes"
+            } else if (weekday == 7 && hour <= 11 ){
+              answer.innerHTML = "Yes"
+            } else {
+              answer.innerHTML = "No"
+            }
+          } else {
+            answer.innerHTML = "No";
+          }
+
+        </script>
     </body>
 </html>
