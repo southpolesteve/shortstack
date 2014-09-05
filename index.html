@@ -39,20 +39,18 @@
 
         <script type="text/javascript">
             var now = new Date();
-            var weekday = now.getDay();
-            var hour = now.getHours();
+            var weekday = now.getUTCDay();
+            var hour = now.getUTCHours();
 
             var isOpen = false;
-            if (weekday >= 4 || weekday == 0) {
-                if (weekday > 4 ) {
-                    isOpen = true;
-                }
-                else if (weekday == 4 && hour >= 7 ) {
-                    isOpen = true;
-                }
-                else if (weekday == 0 && hour <= 23 ) {
-                    isOpen = true;
-                }
+            if (weekday > 4 || weekday == 0) {
+                isOpen = true;
+            }
+            else if (weekday == 4 && hour >= 12 ) {
+                isOpen = true;
+            }
+            else if (weekday == 1 && hour < 4 ) {
+                isOpen = true;
             }
 
             var yes = document.getElementById('yesBox');
